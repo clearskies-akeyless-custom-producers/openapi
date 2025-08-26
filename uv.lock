@@ -151,14 +151,14 @@ provides-extras = ["dev"]
 
 [[package]]
 name = "clear-skies-akeyless-custom-producer"
-version = "2.0.1"
+version = "2.0.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "clear-skies" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/cb/cb/ec75d9dbb6dc5e25ca67e083a9991b47770c084111953dad6d41540d774c/clear_skies_akeyless_custom_producer-2.0.1.tar.gz", hash = "sha256:0f651dd60ae5c5113cfc11375ddc38d7190b6bb2de400ddbaa15d88a1998fda7", size = 8761, upload-time = "2025-08-23T20:55:35.396Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/07/0e/586bced81e61371de04795267f48ca438b26dd77ac5c3ca53ad1df4cb47e/clear_skies_akeyless_custom_producer-2.0.2.tar.gz", hash = "sha256:62de1ef2032e67ab2164c189c13aa66376c11d4c7eca81b06532e2497d6f0e9f", size = 9814, upload-time = "2025-08-26T20:30:16.758Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/31/94/a060570659c7e8ed5d604cd9a031b7dec3a55a4bf52bbeffc4c4f4dcee0e/clear_skies_akeyless_custom_producer-2.0.1-py3-none-any.whl", hash = "sha256:94e54b65b2b3e75caaee113430463e5e25b4af7f73324da1dfec0df7b80adb9f", size = 9769, upload-time = "2025-08-23T20:55:34.595Z" },
+    { url = "https://files.pythonhosted.org/packages/05/61/b2d65441bf01ad14bc178db99477a508875cd29a32ec509b1209d619af8f/clear_skies_akeyless_custom_producer-2.0.2-py3-none-any.whl", hash = "sha256:9fa59e3163561e82a71e7f8703d97fc67688077368a5651eca3ba58e3c59bda8", size = 12340, upload-time = "2025-08-26T20:30:15.846Z" },
 ]
 
 [[package]]

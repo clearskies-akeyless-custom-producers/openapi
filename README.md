@@ -17,12 +17,8 @@ in which case it will generate a new admin key and revoke the old one.
 
 ## Installation
 
-```bash
-# Install uv if not already installed
-pip install uv
-
-# Create a virtual environment and install dependencies
-uv sync
+```
+pip install clear-skies-akeyless-custom-openapi
 ```
 
 ## Usage Example
