@@ -92,7 +92,7 @@ import clearskies
 import clearskies_akeyless_custom_openapi
 
 wsgi = clearskies.contexts.WsgiRef(
-    clearskies.contexts.EndpointGroup(
+    clearskies.EndpointGroup(
         clearskies_akeyless_custom_openapi.build_openapi_producer(url='openapi')
     ),
 )
