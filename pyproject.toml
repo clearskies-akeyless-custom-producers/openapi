@@ -1,7 +1,7 @@
 [project]
 name = "clear-skies-akeyless-custom-openapi"
 description = "Akeyless+Clearskies Custom OpenApi Producer/Rotator"
-version = "v2.0.0"
+version = "v2.0.1"
 license = "MIT"
 readme = "./README.md"
 authors = [{name = "Conor Mancone", email = "cmancone@gmail.com"}]
