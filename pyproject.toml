@@ -1,7 +1,7 @@
 [project]
 name = "clear-skies-akeyless-custom-openapi"
 description = "Akeyless+Clearskies Custom OpenApi Producer/Rotator"
-version = "v2.0.2"
+version = "2.0.3"
 license = "MIT"
 readme = "./README.md"
 authors = [{name = "Conor Mancone", email = "cmancone@gmail.com"}]
@@ -53,4 +53,25 @@ python_version = "3.11"
 exclude = [
  ".*_test\\.py$",
  "docs/.*"
+]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+    "integration",
+]
+pythonpath = [
+  "app"
+]
+
+# This is the dedicated section for uv"s configuration
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "pre-commit>=4.3.0",
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+    "ruff>=0.12.10",
 ]

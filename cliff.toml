@@ -1,0 +1,85 @@
+# cliff.toml
+
+[changelog]
+# A header that is added to the changelog.
+# The format is based on Keep a Changelog.
+header = """
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+"""
+# The template for the release body.
+body = """
+## What's Changed
+
+{%- if version %} in {{ version }}{%- endif -%}
+{% for commit in commits %}
+  {% if commit.remote.pr_title -%}
+    {%- set commit_message = commit.remote.pr_title -%}
+  {%- else -%}
+    {%- set commit_message = commit.message -%}
+  {%- endif -%}
+  * {{ commit_message | split(pat="\n") | first | trim }}\
+    {% if commit.remote.username %} by @{{ commit.remote.username }}{%- endif -%}
+    {% if commit.remote.pr_number %} in \
+      [#{{ commit.remote.pr_number }}]({{ self::remote_url() }}/pull/{{ commit.remote.pr_number }}) \
+    {%- endif %}
+{%- endfor -%}
+
+{%- if github -%}
+{% if github.contributors | filter(attribute="is_first_time", value=true) | length != 0 %}
+  {% raw %}\n{% endraw -%}
+  ## New Contributors
+{%- endif %}\
+{% for contributor in github.contributors | filter(attribute="is_first_time", value=true) %}
+  * @{{ contributor.username }} made their first contribution
+    {%- if contributor.pr_number %} in \
+      [#{{ contributor.pr_number }}]({{ self::remote_url() }}/pull/{{ contributor.pr_number }}) \
+    {%- endif %}
+{%- endfor -%}
+{%- endif -%}
+
+{% if version %}
+    {% if previous.version %}
+      **Full Changelog**: {{ self::remote_url() }}/compare/{{ previous.version }}...{{ version }}
+    {% endif %}
+{% else -%}
+  {% raw %}\n{% endraw %}
+{% endif %}
+
+{%- macro remote_url() -%}
+  https://github.com/{{ remote.github.owner }}/{{ remote.github.repo }}
+{%- endmacro -%}
+
+# A footer that is added to the changelog.
+footer = ""
+# Remove leading and trailing whitespaces from the changelog's body.
+trim = true
+
+[git]
+# Parse commits according to the conventional commits specification.
+conventional_commits = true
+# Filter out commits that are not conventional commits.
+filter_unconventional = false
+# Process commits from the latest tag to the current HEAD.
+commit_range = ".."
+# The section parsers for grouping commits.
+# Groups are based on the Keep a Changelog sections.
+commit_parsers = [
+  { message = "^feat", group = "Added" },
+  { message = "^fix", group = "Fixed" },
+  { message = "^docs", group = "Documentation" },
+  { message = "^perf", group = "Performance" },
+  { message = "^refactor", group = "Refactored" },
+  { message = "^style", group = "Style" },
+  { message = "^test", group = "Testing" },
+  { message = "^chore\\(release\\):", skip = true }, # Skip the release commits
+  { message = "^chore", group = "Changed" },
+  { body = ".*BREAKING CHANGE", group = "Breaking Changes" },
+]
+# Protect breaking changes from being skipped.
+protect_breaking_commits = true
+# Sort commits by oldest first.
+sort_commits = "oldest"
