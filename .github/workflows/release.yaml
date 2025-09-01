@@ -32,5 +32,5 @@ jobs:
         run: |
           echo 'Building version ${{ github.ref_name }}'
           uv version ${{ github.ref_name }}
-          uv build ${{ github.ref_name }}
+          uv build
           uv publish --token ${{ steps.fetch-secrets.outputs.pypi }}
