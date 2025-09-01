@@ -31,5 +31,6 @@ jobs:
       - name: Build and publish
         run: |
           echo 'Building version ${{ github.ref_name }}'
+          uv version ${{ github.ref_name }}
           uv build ${{ github.ref_name }}
           uv publish --token ${{ steps.fetch-secrets.outputs.pypi }}
