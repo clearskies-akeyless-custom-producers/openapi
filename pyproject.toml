@@ -15,7 +15,9 @@ classifiers = [
 ]
 
 [project.urls]
-repository = "https://github.com/clearskies-akeyless-custom-producers/openapi"
+Repository = "https://github.com/clearskies-akeyless-custom-producers/openapi"
+Issues = "https://github.com/clearskies-akeyless-custom-producers/openapi/issues"
+Changelog = "https://github.com/clearskies-akeyless-custom-producers/openapi/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 dev = [
