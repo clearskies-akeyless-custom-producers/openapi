@@ -4,21 +4,33 @@ OpenApi dynamic producer for Akeyless
 
 ## Installation
 
+```bash
+uv add clearskclear-skiesies-akeyless-custom-openapi
 ```
+
+```bash
 pip install clear-skies-akeyless-custom-openapi
+```
+
+or
+
+```bash
+pipenv install clear-skies-akeyless-custom-openapi
+```
+
+or
+
+```bash
+poetry add clear-skies-akeyless-custom-openapi
 ```
 
 ## Producer Payload
 
-The payload for this producer looks like:
-
-```
 {"api_key": "ADMIN_API_KEY_HERE", "id": "ID_FOR_THE_ADMIN_API_KEY"}
-```
 
 You do need the id for your API key, as this is later required when revoking a key.  Unfortunately, the OpenAPI UI does not provide this, and the endpoints used from the admin api key dashboard also don't return the id of the API key.  Therefore, some extra effort is required to fetch it.  You have to use your new API key in order to list the admin API keys in your account and find the id of your key that way.  The following command typically works:
 
-```
+```bash
 export OPENAI_ADMIN_KEY='YOUR_NEW_KEY_HERE'
 curl https://api.openai.com/v1/organization/admin_api_keys \
   -H "Authorization: Bearer $OPENAI_ADMIN_KEY" \
@@ -27,7 +39,7 @@ curl https://api.openai.com/v1/organization/admin_api_keys \
 
 Which will return something like:
 
-```
+```json
 {
   "object": "list",
   "data": [
@@ -79,7 +91,7 @@ wsgi()
 
 Which you can test directly using calls like:
 
-```
+```bash
 curl 'http://localhost:8080/sync/create' -d '{"payload":"{\"api_key\":\"YOUR_ADMIN_API_KEY_HERE\",\"id\":\"ID_OF_ADMIN_API_KEY_HERE\"}"}'
 
 curl 'http://localhost:8080/sync/revoke' -d '{"payload":"{\"api_key\":\"YOUR_ADMIN_API_KEY_HERE\",\"id\":\"ID_OF_ADMIN_API_KEY_HERE\"}"}'
@@ -97,14 +109,6 @@ wsgi = clearskies.contexts.WsgiRef(
     ),
 )
 wsgi()
-```
-
-Which you can test directly using calls like:
-
-```
-curl 'http://localhost:8080/openapi/sync/create' -d '{"payload":"{\"api_key\":\"YOUR_ADMIN_API_KEY_HERE\",\"id\":\"ID_OF_ADMIN_API_KEY_HERE\"}"}'
-
-curl 'http://localhost:8080/openapi/sync/revoke' -d '{"payload":"{\"api_key\":\"YOUR_ADMIN_API_KEY_HERE\",\"id\":\"ID_OF_ADMIN_API_KEY_HERE\"}"}'
 ```
 
 **NOTE:** The WsgiRef context is not intended for production use, so you'll want to switch that out for [another context](https://clearskies.info/docs/context/index.html) more appropriate for your setup.
