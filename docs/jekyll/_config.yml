@@ -3,7 +3,7 @@ description: Documentation for the clearskies-akeyless-custom-openapi
 theme: just-the-docs
 
 url: https://clearskies.info
-baseurl: "modules/producersclearskies-akeyless-custom-openapi"
+baseurl: "modules/producers/clearskies-akeyless-custom-openapi"
 
 permalink: pretty
 
