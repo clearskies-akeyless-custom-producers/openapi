@@ -1,6 +1,7 @@
 name: Doc Publish
 
-on: workflow_call
+on:
+  workflow_dispatch:
 
 jobs:
     publish:
