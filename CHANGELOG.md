@@ -5,9 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.6] - 2025-09-08
+
+### Changed
+- Update copier
+- Ls whole folder structure
+- Ls whole folder structure
+- Allow docs manual run
+- Update copier
+
 ## [2.0.5] - 2025-09-04
 
 ### Changed
+- Bump version to v2.0.5 by @github-actions[bot]
 - Update copier
 
 ## [2.0.4] - 2025-09-02
@@ -28,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * @github-actions[bot] made their first contribution
 * @ made their first contribution
 * @cmancone made their first contribution
+[2.0.6]: https://github.com/clearskies-akeyless-custom-producers/openapi/compare/v2.0.5..v2.0.6
 [2.0.5]: https://github.com/clearskies-akeyless-custom-producers/openapi/compare/v2.0.4..v2.0.5
 [2.0.4]: https://github.com/clearskies-akeyless-custom-producers/openapi/compare/v2.0.3..v2.0.4
 
