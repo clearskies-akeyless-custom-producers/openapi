@@ -37,6 +37,7 @@ jobs:
                   sudo bundle exec jekyll build
                   cd _site
                   aws s3 cp . s3://clearskies.info/modules/producers/clearskies_akeyless_custom_openapi/ --recursive
+                  aws s3 ls s3://clearskies.info/modules/producers/ --recursive
                   cd ../../python
                   aws s3 cp s3://clearskies.info/modules/producers/manifest.json . || touch manifest.json
                   uv run update_manifest.py --pyproject_file=../../pyproject.toml --modules_location=modules/producers
