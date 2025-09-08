@@ -1,9 +1,9 @@
 title: Clearskies OpenApiDocumentation
-description: Documentation for the clearskies-akeyless-custom-openapi
+description: Documentation for the clear-skies-akeyless-custom-openapi
 theme: just-the-docs
 
 url: https://clearskies.info
-baseurl: "modules/producers/clearskies-akeyless-custom-openapi"
+baseurl: "modules/producers/clear-skies-akeyless-custom-openapi"
 
 permalink: pretty
 

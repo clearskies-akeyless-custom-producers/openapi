@@ -5,7 +5,8 @@ OpenApi dynamic producer for Akeyless
 ## Installation
 
 ```bash
-uv add clearskclear-skiesies-akeyless-custom-openapi
+# Install uv if not already installed
+uv add clear-skies-akeyless-custom-openapi
 ```
 
 ```bash
